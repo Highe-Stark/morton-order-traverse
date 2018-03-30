@@ -97,7 +97,7 @@ int traverse(const int **matrix, const int rowNum, const int colNum)
 		steps++;
 		if (i < rowNum && j < colNum) {
 			printTimes++;
-			printf("[%3d][%3d] -> ", i, j);
+			printf("[%2d][%2d]: %5d -> ", i, j, matrix[i][j]);
 			if (printTimes % 4 == 0) printf("\n");
 		}
 		else if (i >= rowNum && j >= colNum) break;
