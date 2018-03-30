@@ -9,7 +9,7 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define GET4(n, a) (((n) >> (2 * (a))) & 0x3)
 #define EXP2(a) (1 << (a))
-#define roundSquare(len, a) (((square) / (a) >= 1) && ((square) % (a)))
+#define roundSquare(len, a) (((square) / (a) > 1) || ((square) / (a) == 1 && (square) % (a)))
 
 int traverse(const int **matrix, const int rowNum, const int colNum);
 
@@ -77,7 +77,8 @@ int traverse(const int **matrix, const int rowNum, const int colNum)
 	else if (roundSquare(square, 16)) square = 32;
 	else if (roundSquare(square, 8)) square = 16;
 	else if (roundSquare(square, 4)) square = 8;
-	else if (roundSquare(square, 1)) square = 4;
+	else if (roundSquare(square, 2)) square = 4;
+	else if (roundSquare(square, 1)) square = 2;
 	else if (square == 1) {
 		printf ("[%3d][%3d]: %8d\n", 0, 0, matrix[0][0]);
 		printf ("\n****************\nTraverse complete\n****************\n");
